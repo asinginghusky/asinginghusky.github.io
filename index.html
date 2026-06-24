@@ -1,191 +1,270 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ein Tag in Hamburg ❤️</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Academic Notice</title>
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fce4ec; /* zartes Rosa */
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+<style>
+body{
+    margin:0;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background: linear-gradient(135deg,#ffe8f3,#fff6d6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
 
-        .card {
-            background: white;
-            max-width: 500px;
-            padding: 40px 30px;
-            border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+.card{
+    background:white;
+    padding:40px; 
+    border-radius:25px;
+    max-width:600px;
+    width:90%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15); 
+    animation: pop 0.5s ease;
+    position: relative;
+    z-index: 10;
+}
 
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #c62828;
-        }
+h1{
+    margin-top:0;
+}
 
-        .hamburg-icon {
-            font-size: 4rem;
-            margin: 10px 0;
-        }
+button{
+   border:none;
+    padding:15px 25px;
+    border-radius:15px;
+    font-size:1rem;
+    cursor:pointer;
+    margin:10px;
+    transition:0.2s;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
 
-        p {
-            font-size: 1.2rem;
-            color: #333;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
+button:hover{
+    transform:scale(1.05);
+}
 
-        .frage {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #c62828;
-            margin: 25px 0 20px;
-        }
+.primary{
+ background:#FF4069; 
+    color:white;
+}
 
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.secondary{
+background:#edf2f4;
+    color:#2b2d42;
+    border:1px solid #2b2d42;
+}
 
-        .btn {
-            padding: 15px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
-        .btn-ja {
-            background: #c62828;
-            color: white;
-        }
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
 
-        .btn-ja:hover {
-            transform: scale(1.08);
-            background: #b71c1c;
-        }
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
 
-        .btn-nein {
-            background: #e0e0e0;
-            color: #555;
-        }
+#dismissBtn{
+  transition: all 0.3s ease;
+}
 
-        .btn-nein:hover {
-            transform: scale(0.95);
-        }
+#dismissBtn:hover{
+  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(6px);
+}
 
-        .antwort {
-            margin-top: 25px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #2e7d32;
-            min-height: 50px;
-        }
 
-        .details {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px dashed #f8bbd0;
-            font-size: 0.95rem;
-            color: #666;
-            display: none;
-        }
 
-        .details.zeigen {
-            display: block;
-        }
-
-        .details ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .details li {
-            padding: 6px 0;
-        }
-
-        .details li::before {
-            content: "📍 ";
-        }
-
-        .footer-text {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #999;
-        }
-    </style>
+</style>
 </head>
-<body>
 
-<div class="card">
-    <!-- Hamburg-Icon & Begrüßung -->
-    <div class="hamburg-icon">🏙️</div>
-    <h1>Hamburg ruft!</h1>
-    <p>
-        Hey <strong>Freundin</strong> 👋<br />
-        ich habe eine Idee für einen tollen Tag in Hamburg ...
-    </p>
+<body> 
 
-    <!-- Die große Frage -->
-    <div class="frage">
-        Willst du mit mir<br />einen Tag in Hamburg verbringen?
-    </div>
+<div class="card" id="card">
 
-    <!-- Ja / Nein Buttons -->
-    <div class="buttons">
-        <button class="btn btn-ja" onclick="antwortJa()">JA! ❤️</button>
-        <button class="btn btn-nein" onclick="antwortNein()">Nein</button>
-    </div>
+<h1>WER IST DENN DIESE COOLE MAUS, DIE DAS 1. JURISTISCHE STAATSEXAMEN ERFOLGREICH ABGESCHLOSSEN HAT?? </h1>
 
-    <!-- Antwort-Bereich -->
-    <div id="antwort" class="antwort"></div>
 
-    <!-- Details (werden bei JA eingeblendet) -->
-    <div id="details" class="details">
-        <p><strong>🥳 Geplant hätte ich:</strong></p>
-        <ul>
-            <li>Spaziergang an der Elbe</li>
-            <li>Besuch im Miniatur Wunderland</li>
-            <li>Kaffee & Kuchen in der Speicherstadt</li>
-            <li>Abendessen mit Blick auf den Hafen</li>
-        </ul>
-        <p style="margin-top: 12px; color: #c62828;">
-            Sag mir einfach, wann du Zeit hast! 💕
-        </p>
-    </div>
 
-    <div class="footer-text">
-        🌊 Hamburg wartet auf uns!
-    </div>
+<button class="primary" onclick="next1()">
+DAS BIN ICH!
+</button>
+
 </div>
 
 <script>
-    function antwortJa() {
-        document.getElementById('antwort').innerHTML = '😍 Juhu! Ich freu mich riesig!';
-        document.getElementById('details').classList.add('zeigen');
-    }
+    
 
-    function antwortNein() {
-        document.getElementById('antwort').innerHTML = '😢 Schade ... aber ich frag dich später nochmal!';
-        document.getElementById('details').classList.remove('zeigen');
-    }
+function next1(){
+document.getElementById("card").innerHTML = `
+<h1>RICHTIG, das bist natürlich DU! </h1>
+
+<p> Meine liebe Bamsi Mausi, ich bin so stolz auf dich!</p>
+ 
+<p>
+🎊 HERZLICHEN GLÜCKWUNSCH 🎊 
+</p>
+
+<p>
+Eine absolut bemerkenswerte Leistung!
+</p>
+
+<button class="primary" onclick="next2()">
+🎁 Click here to collect your reward 🎁
+</button>
+
+<button class="secondary" id="dismissBtn" onclick="dismiss()">
+Dismiss 
+</button> 
+`;
+}
+
+
+function dismiss(){
+document.getElementById("card").innerHTML = `
+<h1>⚖️ Objection overruled ⚖️</h1>
+
+<p>
+HAHAHAHA wo kämen wir denn da hin, wenn das eine Option wäre LOL
+</p>
+
+<button class="primary" onclick="next2()">
+🎁 Click here to collect your reward 🎁
+</button>
+
+`;
+}
+
+function next2(){
+document.getElementById("card").innerHTML = `
+<h1>✨ EINLADUNG✨</h1>
+
+<p>
+Meine liebe Gamzi,<br>
+
+zum feierlichen Anlass deines ersten Staatsexamens, würde ich dich gerne zu einem  Besuch im Miniatur-Wunderland und ein anschließendes Essen in Hamburg einladen. 
+</p>
+
+<p>
+Der Besuch beinhaltet ein VR-Erlebnis, beginnend um 13:30 Uhr. Ich habe nochmal nachgeschaut und man kann wohl sehr viel Zeit drin verbringen, deswegen der Vorschlag, dass wir vllt schon am frühen Vormittag hingehen? 
+</p>
+
+<p>
+Um 17 Uhr haben wir dann eine Reservierung bei LOKMAM an der Sternschanze, damit wir endlich auf dich anstoßen können! Deine armselige Freundin hat leider Fahrschule um 19 Uhr, sodass sie schon um 18:30 die S-Bahn zurück nehmen muss...falls wir also früher mit Miniatur Wunderland fertig werden, können wir auch etwas früher essen gehen 😇.
+</p>
+
+<p>
+Es ist mir eine SO große Freude gemeinsam mit dir den Weg bis jetzt gehen zu können und ich kann es kaum erwarten, dich endlich zu drücken. 
+</p>
+
+<h2> Deine ANNE BÄNNI </h2>
+
+
+
+<button class="primary" onclick="accept()">
+Das klingt super!
+</button>
+
+<button class="secondary" id="noBtn" onclick="dismiss()">
+Och ich will nicht...
+</button>
+`;
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    setTimeout(() => {
+
+        if (Math.random() < 0.999) {
+
+           const x = Math.random() * (window.innerWidth - 120);
+           const y = Math.random() * (window.innerHeight - 60);
+
+            noBtn.style.position = "absolute";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+    }, 10);
+});
+}
+
+function accept(){
+   
+document.getElementById("card").innerHTML = `
+
+<h2>🧡 IT´S A DATE 🧡</h2>
+
+<p>
+Your reservation for
+</p>
+
+<h2>THE GREAT HAMBURG DAY</h2>
+
+<p>
+has been successfully confirmed.
+</p>
+
+<p>
+Hab dich lieb Maus 🧡
+</p>
+
+<hr style="margin-top:30px;">
+
+<p style="
+font-size:10px;
+color:gray;
+line-height:1.4;
+text-align:left;
+">
+ Es besteht kein Widerrufsrecht. Eine Anfechtung ist ausgeschlossen. Versuchs gar nicht erst. Rücktritt auch.
+Mit der Zusage ist die Teilnahme am Hamburg-Day verbindlich. Der gewerbliche Weiterverkauf dieses Erlebnisses ist untersagt.
+</p>
+
+
+`;
+}
+
+for(let i=0;i<20;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML=["🧡","⚖️","📚","🧡"][Math.floor(Math.random()*4)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+heart.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(heart);
+}
+
+
+
+
+
+
 </script>
 
 </body>
