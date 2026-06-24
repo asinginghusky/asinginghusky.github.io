@@ -1,271 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Important Academic Notice</title>
-
-<style>
-body{
-    margin:0;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-    background: linear-gradient(135deg,#ffe8f3,#fff6d6);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-}
-
-.card{
-    background:white;
-    padding:40px; 
-    border-radius:25px;
-    max-width:600px;
-    width:90%;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15); 
-    animation: pop 0.5s ease;
-    position: relative;
-    z-index: 10;
-}
-
-h1{
-    margin-top:0;
-}
-
-button{
-   border:none;
-    padding:15px 25px;
-    border-radius:15px;
-    font-size:1rem;
-    cursor:pointer;
-    margin:10px;
-    transition:0.2s;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-.primary{
- background:#FF4069; 
-    color:white;
-}
-
-.secondary{
-background:#edf2f4;
-    color:#2b2d42;
-    border:1px solid #2b2d42;
-}
-
-@keyframes pop{
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.heart{
-    position:absolute;
-    font-size:20px;
-    animation: float 6s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-100px);
-        opacity:0;
-    }
-}
-
-#dismissBtn{
-  transition: all 0.3s ease;
-}
-
-#dismissBtn:hover{
-  opacity: 0;
-  transform: scale(0.9);
-  filter: blur(6px);
-}
-
-
-
-</style>
-</head>
-
-<body> 
-
-<div class="card" id="card">
-
-<h1>WER IST DENN DIESE COOLE MAUS, DIE DAS 1. JURISTISCHE STAATSEXAMEN ERFOLGREICH ABGESCHLOSSEN HAT?? </h1>
-
-
-
-<button class="primary" onclick="next1()">
-DAS BIN ICH!
-</button>
-
-</div>
-
-<script>
-    
-
-function next1(){
-document.getElementById("card").innerHTML = `
-<h1>RICHTIG, das bist natürlich DU! </h1>
-
-<p> Meine liebe Bamsi Mausi, ich bin so stolz auf dich!</p>
- 
-<p>
-🎊 HERZLICHEN GLÜCKWUNSCH 🎊 
-</p>
-
-<p>
-Eine absolut bemerkenswerte Leistung!
-</p>
-
-<button class="primary" onclick="next2()">
-🎁 Click here to collect your reward 🎁
-</button>
-
-<button class="secondary" id="dismissBtn" onclick="dismiss()">
-Dismiss 
-</button> 
-`;
-}
-
-
-function dismiss(){
-document.getElementById("card").innerHTML = `
-<h1>⚖️ Objection overruled ⚖️</h1>
-
-<p>
-HAHAHAHA wo kämen wir denn da hin, wenn das eine Option wäre LOL
-</p>
-
-<button class="primary" onclick="next2()">
-🎁 Click here to collect your reward 🎁
-</button>
-
-`;
-}
-
-function next2(){
-document.getElementById("card").innerHTML = `
-<h1>✨ EINLADUNG✨</h1>
-
-<p>
-Meine liebe Gamzi,<br>
-
-zum feierlichen Anlass deines ersten Staatsexamens, würde ich dich gerne zu einem  Besuch im Miniatur-Wunderland und ein anschließendes Essen in Hamburg einladen. 
-</p>
-
-<p>
-Der Besuch beinhaltet ein VR-Erlebnis, beginnend um 13:30 Uhr. Ich habe nochmal nachgeschaut und man kann wohl sehr viel Zeit drin verbringen, deswegen der Vorschlag, dass wir vllt schon am frühen Vormittag hingehen? 
-</p>
-
-<p>
-Um 17 Uhr haben wir dann eine Reservierung bei LOKMAM an der Sternschanze, damit wir endlich auf dich anstoßen können! Deine armselige Freundin hat leider Fahrschule um 19 Uhr, sodass sie schon um 18:30 die S-Bahn zurück nehmen muss...falls wir also früher mit Miniatur Wunderland fertig werden, können wir auch etwas früher essen gehen 😇.
-</p>
-
-<p>
-Es ist mir eine SO große Freude gemeinsam mit dir den Weg bis jetzt gehen zu können und ich kann es kaum erwarten, dich endlich zu drücken. 
-</p>
-
-<h2> Deine ANNE BÄNNI </h2>
-
-
-
-<button class="primary" onclick="accept()">
-Das klingt super!
-</button>
-
-<button class="secondary" id="noBtn" onclick="dismiss()">
-Och ich will nicht...
-</button>
-`;
-
-const noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", () => {
-    setTimeout(() => {
-
-        if (Math.random() < 0.999) {
-
-           const x = Math.random() * (window.innerWidth - 250);
-           const y = Math.random() * (window.innerHeight - 150);
-
-            noBtn.style.position = "absolute";
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Academic Notice</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            background: linear-gradient(135deg, #ffe8f3, #fff6d6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
         }
 
-    }, 10);
-});
-}
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: pop 0.5s ease;
+            position: relative;
+            z-index: 10;
+        }
 
-function accept(){
-   
-document.getElementById("card").innerHTML = `
+        h1 {
+            margin-top: 0;
+        }
 
-<h2>🧡 IT´S A DATE 🧡</h2>
+        button {
+            border: none;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.2s;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
 
-<p>
-Your reservation for
-</p>
+        button:hover {
+            transform: scale(1.05);
+        }
 
-<h2>THE GREAT HAMBURG DAY</h2>
+        .primary {
+            background: #FF4069;
+            color: white;
+        }
 
-<p>
-has been successfully confirmed.
-</p>
+        .secondary {
+            background: #edf2f4;
+            color: #2b2d42;
+            border: 1px solid #2b2d42;
+        }
 
-<p>
-Hab dich lieb Maus 🧡
-</p>
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-<hr style="margin-top:30px;">
+        .schwebendes-bild {
+            position: absolute;
+            width: 80px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: float 8s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+        }
 
-<p style="
-font-size:10px;
-color:gray;
-line-height:1.4;
-text-align:left;
-">
- Es besteht kein Widerrufsrecht. Eine Anfechtung ist ausgeschlossen. Versuchs gar nicht erst. Rücktritt auch.
-Mit der Zusage ist die Teilnahme am Hamburg-Day verbindlich. Der gewerbliche Weiterverkauf dieses Erlebnisses ist untersagt.
-</p>
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
+        #dismissBtn {
+            transition: all 0.3s ease;
+        }
 
-`;
-}
+        #dismissBtn:hover {
+            opacity: 0;
+            transform: scale(0.9);
+            filter: blur(6px);
+        }
+    </style>
+</head>
+<body>
 
-for(let i=0;i<20;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML=["🧡","⚖️","📚","🧡"][Math.floor(Math.random()*4)];
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(4+Math.random()*4)+"s";
-heart.style.animationDelay=Math.random()*5+"s";
-document.body.appendChild(heart);
-}
+    <div class="card" id="card">
+        <h1>WER IST DENN DIESE COOLE MAUS, DIE DAS 1. JURISTISCHE STAATSEXAMEN ERFOLGREICH ABGESCHLOSSEN HAT??</h1>
+        <button class="primary" onclick="next1()">DAS BIN ICH!</button>
+    </div>
 
+    <script>
+        // Phase 1: Nur das erste Bild
+        const bilderPhase1 = [
+            "3B7CBDC2-B96D-416C-8149-1EC963719061_1_105_c.jpeg"
+        ];
 
+        // Phase 2: Alle anderen Bilder
+        const bilderPhase2 = [
+            "0E163651-03B8-4F33-B406-4F1A13469C77_1_105_c.jpeg",
+            "19779F04-BAAB-4175-91F9-52A13BE0C6FE_1_105_c.jpeg",
+            "39D331F0-0BE7-4226-8F1A-A3AA15C89F4B_1_105_c.jpeg",
+            "565CE2EB-1FE1-4067-A033-DA8B066B41CF_1_105_c.jpeg",
+            "C9F3F8D7-99E0-461A-9DFA-87BE48432302_1_105_c.jpeg",
+            "CBCA1B31-B6E3-4D3F-A189-A8D2B14ED7AD_1_105_c.jpeg"
+        ];
 
+        let phase = 1; // 1 = Anfangsbilder, 2 = nach Klick
 
+        function erstelleBilder(bildListe) {
+            // Alte Bilder entfernen
+            document.querySelectorAll('.schwebendes-bild').forEach(el => el.remove());
 
+            // Neue Bilder erstellen
+            bildListe.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'schwebendes-bild';
+                img.alt = 'schwebendes Bild';
 
-</script>
+                // Zufällige Position
+                const left = Math.random() * 90; // in vw
+                const top = Math.random() * 90; // in vh (wird für Animation nicht direkt verwendet)
+                img.style.left = left + 'vw';
+
+                // Zufällige Animationsdauer und Verzögerung
+                const dauer = 6 + Math.random() * 6; // 6-12 Sekunden
+                const verzögerung = Math.random() * 8; // 0-8 Sekunden
+                img.style.animationDuration = dauer + 's';
+                img.style.animationDelay = verzögerung + 's';
+
+                // Leichte Größenvariation
+                const größe = 60 + Math.random() * 60; // 60-120px
+                img.style.width = größe + 'px';
+
+                document.body.appendChild(img);
+            });
+        }
+
+        // Initial: Phase 1 starten
+        erstelleBilder(bilderPhase1);
+
+        function wechselZuPhase2() {
+            if (phase === 1) {
+                phase = 2;
+                erstelleBilder(bilderPhase2);
+            }
+        }
+
+        function next1() {
+            document.getElementById("card").innerHTML = `
+                <h1>RICHTIG, das bist natürlich DU!</h1>
+                <p>Meine liebe Bamsi Mausi, ich bin so stolz auf dich!</p>
+                <p>🎊 HERZLICHEN GLÜCKWUNSCH 🎊</p>
+                <p>Eine absolut bemerkenswerte Leistung!</p>
+                <button class="primary" onclick="next2()">🎁 Click here to collect your reward 🎁</button>
+                <button class="secondary" id="dismissBtn" onclick="dismiss()">Dismiss</button>
+            `;
+            wechselZuPhase2(); // Bilder wechseln
+        }
+
+        function dismiss() {
+            document.getElementById("card").innerHTML = `
+                <h1>⚖️ Objection overruled ⚖️</h1>
+                <p>HAHAHAHA wo kämen wir denn da hin, wenn das eine Option wäre LOL</p>
+                <button class="primary" onclick="next2()">🎁 Click here to collect your reward 🎁</button>
+            `;
+            // Phase bleibt 2, Bilder bleiben
+        }
+
+        function next2() {
+            document.getElementById("card").innerHTML = `
+                <h1>✨ EINLADUNG✨</h1>
+                <p>Meine liebe Gamzi,<br>
+                zum feierlichen Anlass deines ersten Staatsexamens, würde ich dich gerne zu einem Besuch im Miniatur-Wunderland und ein anschließendes Essen in Hamburg einladen.</p>
+                <p>Der Besuch beinhaltet ein VR-Erlebnis, beginnend um 13:30 Uhr. Ich habe nochmal nachgeschaut und man kann wohl sehr viel Zeit drin verbringen, deswegen der Vorschlag, dass wir vllt schon am frühen Vormittag hingehen?</p>
+                <p>Um 17 Uhr haben wir dann eine Reservierung bei LOKMAM an der Sternschanze, damit wir endlich auf dich anstoßen können! Deine armselige Freundin hat leider Fahrschule um 19 Uhr, sodass sie schon um 18:30 die S-Bahn zurück nehmen muss...falls wir also früher mit Miniatur Wunderland fertig werden, können wir auch etwas früher essen gehen 😇.</p>
+                <p>Es ist mir eine SO große Freude gemeinsam mit dir den Weg bis jetzt gehen zu können und ich kann es kaum erwarten, dich endlich zu drücken.</p>
+                <h2>Deine ANNE BÄNNI</h2>
+                <button class="primary" onclick="accept()">Das klingt super!</button>
+                <button class="secondary" id="noBtn" onclick="dismiss()">Och ich will nicht...</button>
+            `;
+
+            const noBtn = document.getElementById("noBtn");
+            noBtn.addEventListener("mouseover", () => {
+                setTimeout(() => {
+                    if (Math.random() < 0.999) {
+                        // Bildschirmgrenzen beachten
+                        const btnWidth = noBtn.offsetWidth || 150;
+                        const btnHeight = noBtn.offsetHeight || 50;
+                        const maxX = window.innerWidth - btnWidth - 20;
+                        const maxY = window.innerHeight - btnHeight - 20;
+                        const x = Math.max(0, Math.random() * maxX);
+                        const y = Math.max(0, Math.random() * maxY);
+                        noBtn.style.position = "fixed";
+                        noBtn.style.left = x + "px";
+                        noBtn.style.top = y + "px";
+                    }
+                }, 10);
+            });
+        }
+
+        function accept() {
+            document.getElementById("card").innerHTML = `
+                <h2>🧡 IT´S A DATE 🧡</h2>
+                <p>Your reservation for</p>
+                <h2>THE GREAT HAMBURG DAY</h2>
+                <p>has been successfully confirmed.</p>
+                <p>Hab dich lieb Maus 🧡</p>
+                <hr style="margin-top:30px;">
+                <p style="font-size:10px; color:gray; line-height:1.4; text-align:left;">
+                    Es besteht kein Widerrufsrecht. Eine Anfechtung ist ausgeschlossen. Versuchs gar nicht erst. Rücktritt auch.
+                    Mit der Zusage ist die Teilnahme am Hamburg-Day verbindlich. Der gewerbliche Weiterverkauf dieses Erlebnisses ist untersagt.
+                </p>
+            `;
+        }
+    </script>
 
 </body>
 </html>
