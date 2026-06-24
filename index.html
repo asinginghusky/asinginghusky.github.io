@@ -1,9 +1,216 @@
-< html >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Academic Notice</title>
 
-< body >
-  < h1 > IHR NAME ist Anne </ h1 >
-  <p> Willkommen huhuu auf meiner Website ! </p>
-  < img src = " https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif " />  
-</ body >
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ffe8f3,#fff6d6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
 
-</ html >
+.card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    max-width:600px;
+    width:90%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    animation: pop 0.5s ease;
+}
+
+h1{
+    margin-top:0;
+}
+
+button{
+    border:none;
+    padding:15px 25px;
+    border-radius:15px;
+    font-size:1rem;
+    cursor:pointer;
+    margin:10px;
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.primary{
+    background:#ff8fc7;
+    color:white;
+}
+
+.secondary{
+    background:#f0f0f0;
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+
+<h1>🚨 OFFICIAL ACADEMIC ANNOUNCEMENT 🚨</h1>
+
+<p>
+Recent investigations have revealed that you have successfully survived your exams.
+</p>
+
+<p>
+This achievement qualifies you for a special reward package.
+</p>
+
+<button class="primary" onclick="next1()">
+View Reward Package
+</button>
+
+</div>
+
+<script>
+
+function next1(){
+document.getElementById("card").innerHTML = `
+<h1>🏆 Achievement Unlocked</h1>
+
+<p>You have gained:</p>
+
+<p>
+✅ Freedom<br>
+✅ Sleep<br>
+✅ The ability to stop pretending everything is fine
+</p>
+
+<p>
+There is, however, one final reward...
+</p>
+
+<button class="primary" onclick="next2()">
+Continue
+</button>
+`;
+}
+
+function next2(){
+document.getElementById("card").innerHTML = `
+<h1>✨ Invitation ✨</h1>
+
+<p>
+To celebrate the successful completion of your exams,
+</p>
+
+<p>
+I would like to invite you to:
+</p>
+
+<h2>🌷 A Day in Hamburg 🌷</h2>
+
+<p>
+Potential activities may include:
+</p>
+
+<p>
+☕ Coffee<br>
+🍰 Cake<br>
+🚶 Wandering around Hamburg<br>
+🛍️ Looking at things we definitely don't need<br>
+✨ General recovery from academic suffering
+</p>
+
+<button class="primary" onclick="accept()">
+This sounds amazing
+</button>
+
+<button class="secondary" id="noBtn">
+Hmm not sure
+</button>
+`;
+
+let noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+const x = Math.random() * (window.innerWidth - 150);
+const y = Math.random() * (window.innerHeight - 80);
+
+noBtn.style.position = "absolute";
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+});
+}
+
+function accept(){
+document.getElementById("card").innerHTML = `
+<h1>🎉 Excellent Choice 🎉</h1>
+
+<p>
+Your reservation for
+</p>
+
+<h2>THE GREAT HAMBURG RECOVERY DAY</h2>
+
+<p>
+has been successfully confirmed.
+</p>
+
+<p>
+I can't wait 💛
+</p>
+
+<p style="font-size:3rem;">
+🥳☕🌷✨
+</p>
+`;
+}
+
+for(let i=0;i<20;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML=["💛","✨","🌷","⭐"][Math.floor(Math.random()*4)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+heart.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
