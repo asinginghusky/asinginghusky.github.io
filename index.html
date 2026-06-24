@@ -1,215 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Important Academic Notice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ein Tag in Hamburg ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ffe8f3,#fff6d6);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fce4ec; /* zartes Rosa */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-.card{
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    max-width:600px;
-    width:90%;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-    animation: pop 0.5s ease;
-}
+        .card {
+            background: white;
+            max-width: 500px;
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-h1{
-    margin-top:0;
-}
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #c62828;
+        }
 
-button{
-    border:none;
-    padding:15px 25px;
-    border-radius:15px;
-    font-size:1rem;
-    cursor:pointer;
-    margin:10px;
-    transition:0.2s;
-}
+        .hamburg-icon {
+            font-size: 4rem;
+            margin: 10px 0;
+        }
 
-button:hover{
-    transform:scale(1.05);
-}
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
 
-.primary{
-    background:#ff8fc7;
-    color:white;
-}
+        .frage {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c62828;
+            margin: 25px 0 20px;
+        }
 
-.secondary{
-    background:#f0f0f0;
-}
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-@keyframes pop{
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
+        .btn {
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-.heart{
-    position:absolute;
-    font-size:20px;
-    animation: float 6s linear infinite;
-}
+        .btn-ja {
+            background: #c62828;
+            color: white;
+        }
 
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-100px);
-        opacity:0;
-    }
-}
-</style>
+        .btn-ja:hover {
+            transform: scale(1.08);
+            background: #b71c1c;
+        }
+
+        .btn-nein {
+            background: #e0e0e0;
+            color: #555;
+        }
+
+        .btn-nein:hover {
+            transform: scale(0.95);
+        }
+
+        .antwort {
+            margin-top: 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2e7d32;
+            min-height: 50px;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #f8bbd0;
+            font-size: 0.95rem;
+            color: #666;
+            display: none;
+        }
+
+        .details.zeigen {
+            display: block;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details li {
+            padding: 6px 0;
+        }
+
+        .details li::before {
+            content: "📍 ";
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="card" id="card">
+<div class="card">
+    <!-- Hamburg-Icon & Begrüßung -->
+    <div class="hamburg-icon">🏙️</div>
+    <h1>Hamburg ruft!</h1>
+    <p>
+        Hey <strong>Freundin</strong> 👋<br />
+        ich habe eine Idee für einen tollen Tag in Hamburg ...
+    </p>
 
-<h1>🚨 OFFICIAL ACADEMIC ANNOUNCEMENT 🚨</h1>
+    <!-- Die große Frage -->
+    <div class="frage">
+        Willst du mit mir<br />einen Tag in Hamburg verbringen?
+    </div>
 
-<p>
-Recent investigations have revealed that you have successfully survived your exams.
-</p>
+    <!-- Ja / Nein Buttons -->
+    <div class="buttons">
+        <button class="btn btn-ja" onclick="antwortJa()">JA! ❤️</button>
+        <button class="btn btn-nein" onclick="antwortNein()">Nein</button>
+    </div>
 
-<p>
-This achievement qualifies you for a special reward package.
-</p>
+    <!-- Antwort-Bereich -->
+    <div id="antwort" class="antwort"></div>
 
-<button class="primary" onclick="next1()">
-View Reward Package
-</button>
+    <!-- Details (werden bei JA eingeblendet) -->
+    <div id="details" class="details">
+        <p><strong>🥳 Geplant hätte ich:</strong></p>
+        <ul>
+            <li>Spaziergang an der Elbe</li>
+            <li>Besuch im Miniatur Wunderland</li>
+            <li>Kaffee & Kuchen in der Speicherstadt</li>
+            <li>Abendessen mit Blick auf den Hafen</li>
+        </ul>
+        <p style="margin-top: 12px; color: #c62828;">
+            Sag mir einfach, wann du Zeit hast! 💕
+        </p>
+    </div>
 
+    <div class="footer-text">
+        🌊 Hamburg wartet auf uns!
+    </div>
 </div>
 
 <script>
+    function antwortJa() {
+        document.getElementById('antwort').innerHTML = '😍 Juhu! Ich freu mich riesig!';
+        document.getElementById('details').classList.add('zeigen');
+    }
 
-function next1(){
-document.getElementById("card").innerHTML = `
-<h1>🏆 Achievement Unlocked</h1>
-
-<p>You have gained:</p>
-
-<p>
-✅ Freedom<br>
-✅ Sleep<br>
-✅ The ability to stop pretending everything is fine
-</p>
-
-<p>
-There is, however, one final reward...
-</p>
-
-<button class="primary" onclick="next2()">
-Continue
-</button>
-`;
-}
-
-function next2(){
-document.getElementById("card").innerHTML = `
-<h1>✨ Invitation ✨</h1>
-
-<p>
-To celebrate the successful completion of your exams,
-</p>
-
-<p>
-I would like to invite you to:
-</p>
-
-<h2>🌷 A Day in Hamburg 🌷</h2>
-
-<p>
-Potential activities may include:
-</p>
-
-<p>
-☕ Coffee<br>
-🍰 Cake<br>
-🚶 Wandering around Hamburg<br>
-🛍️ Looking at things we definitely don't need<br>
-✨ General recovery from academic suffering
-</p>
-
-<button class="primary" onclick="accept()">
-This sounds amazing
-</button>
-
-<button class="secondary" id="noBtn">
-Hmm not sure
-</button>
-`;
-
-let noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", () => {
-const x = Math.random() * (window.innerWidth - 150);
-const y = Math.random() * (window.innerHeight - 80);
-
-noBtn.style.position = "absolute";
-noBtn.style.left = x + "px";
-noBtn.style.top = y + "px";
-});
-}
-
-function accept(){
-document.getElementById("card").innerHTML = `
-<h1>🎉 Excellent Choice 🎉</h1>
-
-<p>
-Your reservation for
-</p>
-
-<h2>THE GREAT HAMBURG RECOVERY DAY</h2>
-
-<p>
-has been successfully confirmed.
-</p>
-
-<p>
-I can't wait 💛
-</p>
-
-<p style="font-size:3rem;">
-🥳☕🌷✨
-</p>
-`;
-}
-
-for(let i=0;i<20;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML=["💛","✨","🌷","⭐"][Math.floor(Math.random()*4)];
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(4+Math.random()*4)+"s";
-heart.style.animationDelay=Math.random()*5+"s";
-document.body.appendChild(heart);
-}
-
+    function antwortNein() {
+        document.getElementById('antwort').innerHTML = '😢 Schade ... aber ich frag dich später nochmal!';
+        document.getElementById('details').classList.remove('zeigen');
+    }
 </script>
 
 </body>
